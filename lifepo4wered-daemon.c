@@ -41,7 +41,7 @@ void set_term_handler(void) {
 /* this is custom shutdown code for running under resin.io */
 void shutdown(void) {
   syslog(LOG_INFO, "LiFePO4wered/Pi triggering resin.io shutdown");
-  system("/usr/src/app/shutdown.sh");
+  system("/tmp/shutdown.sh");
   sleep(5);
 }
 
