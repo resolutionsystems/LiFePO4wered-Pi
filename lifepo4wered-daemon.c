@@ -37,11 +37,11 @@ void set_term_handler(void) {
 }
 
 /* Shut down the system */
-
+/* this is custom shutdown code for running under resin.io */
 void shutdown(void) {
-  syslog(LOG_INFO, "LiFePO4wered/Pi triggered shutdown");
-  char *params[3] = {"init", "0", NULL};
-  execv("/sbin/init", params);
+  syslog(LOG_INFO, "LiFePO4wered/Pi triggering resin.io shutdown");
+  system("/usr/src/app/shutdown.sh");
+  sleep(5);
 }
 
 int main(int argc, char *argv[]) {
